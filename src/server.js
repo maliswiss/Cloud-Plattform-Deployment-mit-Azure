@@ -68,7 +68,7 @@ app.get('/', (req, res) => {
       </style>
     </head>
     <body>
-      <h1>Notiz-API · live auf Azure(DEMO VERSION)</h1>
+      <h1>Notiz-API · live auf Azure(Demo Version)</h1>
       <p>Anwendung deployt im Rahmen des Auftrags <strong>C3 · Cloud-Plattform Deployment</strong>.</p>
       <h2>Verfügbare Endpoints</h2>
       <div class="endpoint"><span class="method">GET</span> <code>/api/notizen</code> — Alle Notizen abrufen</div>
