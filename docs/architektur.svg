@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" font-family="Calibri, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="3" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.25"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow-navy" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1F3864"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#C19A2E"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2E7D32"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="550" y="32" text-anchor="middle" font-family="Cambria, serif" font-size="22" font-weight="bold" fill="#1F3864">Architektur · Cloud-Plattform Deployment auf Azure</text>
+  <line x1="350" y1="44" x2="750" y2="44" stroke="#C19A2E" stroke-width="2"/>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#666" font-style="italic">Auftrag C3 · Deployment LB1 · GIBB Bern</text>
+
+  <!-- ============== LEFT: Developer ============== -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="130" width="180" height="100" rx="10" fill="#FFFFFF" stroke="#1F3864" stroke-width="2"/>
+    <rect x="40" y="130" width="6" height="100" rx="3" fill="#4A6FA5"/>
+    <text x="130" y="160" text-anchor="middle" font-size="14" font-weight="bold" fill="#1F3864">Entwickler</text>
+    <text x="130" y="182" text-anchor="middle" font-size="11" fill="#444">Lokale Maschine</text>
+    <text x="130" y="200" text-anchor="middle" font-size="10" fill="#666">VS Code · Node.js</text>
+    <text x="130" y="216" text-anchor="middle" font-size="10" fill="#666">git push origin main</text>
+  </g>
+
+  <!-- Arrow 1: Dev → GitHub -->
+  <line x1="220" y1="180" x2="320" y2="180" stroke="#1F3864" stroke-width="2.5" marker-end="url(#arrow-navy)"/>
+  <text x="270" y="172" text-anchor="middle" font-size="10" fill="#1F3864" font-weight="bold">git push</text>
+
+  <!-- ============== CENTER: GitHub ============== -->
+  <g filter="url(#shadow)">
+    <rect x="325" y="130" width="200" height="180" rx="10" fill="#FFFFFF" stroke="#1F3864" stroke-width="2"/>
+    <rect x="325" y="130" width="6" height="180" rx="3" fill="#1F3864"/>
+    <text x="425" y="158" text-anchor="middle" font-size="14" font-weight="bold" fill="#1F3864">GitHub</text>
+    <text x="425" y="176" text-anchor="middle" font-size="10" fill="#666">Repository + Actions</text>
+    <line x1="345" y1="186" x2="505" y2="186" stroke="#E0E0E0" stroke-width="1"/>
+
+    <!-- Repo -->
+    <rect x="345" y="196" width="160" height="40" rx="4" fill="#F5F7FA" stroke="#CCD" stroke-width="1"/>
+    <text x="425" y="212" text-anchor="middle" font-size="11" font-weight="bold" fill="#1F3864">Code-Repository</text>
+    <text x="425" y="227" text-anchor="middle" font-size="9" fill="#666">src/ · package.json · workflow</text>
+
+    <!-- Workflow -->
+    <rect x="345" y="244" width="160" height="55" rx="4" fill="#FFF4E0" stroke="#C19A2E" stroke-width="1.5"/>
+    <text x="425" y="260" text-anchor="middle" font-size="11" font-weight="bold" fill="#1F3864">GitHub Actions</text>
+    <text x="425" y="275" text-anchor="middle" font-size="9" fill="#666">build · npm ci · ZIP</text>
+    <text x="425" y="289" text-anchor="middle" font-size="9" fill="#666">deploy · webapps-deploy</text>
+  </g>
+
+  <!-- Arrow 2: GitHub → Azure App Service -->
+  <line x1="525" y1="270" x2="640" y2="270" stroke="#C19A2E" stroke-width="2.5" marker-end="url(#arrow-amber)"/>
+  <text x="582" y="262" text-anchor="middle" font-size="10" fill="#C19A2E" font-weight="bold">ZIP Deploy</text>
+  <text x="582" y="285" text-anchor="middle" font-size="9" fill="#888">Publish Profile</text>
+
+  <!-- ============== RIGHT: Azure ============== -->
+  <g filter="url(#shadow)">
+    <rect x="645" y="100" width="410" height="280" rx="10" fill="#F5F9FF" stroke="#1565C0" stroke-width="2"/>
+    <text x="850" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="#1565C0">Microsoft Azure</text>
+    <text x="850" y="142" text-anchor="middle" font-size="10" fill="#666" font-style="italic">Resource Group · rg-cloud-deployment-mali · Austria East</text>
+    <line x1="665" y1="152" x2="1035" y2="152" stroke="#CCD" stroke-width="1"/>
+
+    <!-- App Service -->
+    <g filter="url(#shadow)">
+      <rect x="675" y="170" width="160" height="90" rx="8" fill="#FFFFFF" stroke="#1565C0" stroke-width="1.5"/>
+      <rect x="675" y="170" width="5" height="90" rx="2" fill="#1565C0"/>
+      <text x="755" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#1F3864">App Service</text>
+      <text x="755" y="205" text-anchor="middle" font-size="9" fill="#666">mali-notiz-api-c3</text>
+      <text x="755" y="221" text-anchor="middle" font-size="9" fill="#666">Linux · Node 22 · F1</text>
+      <line x1="690" y1="228" x2="820" y2="228" stroke="#E0E0E0" stroke-width="1"/>
+      <text x="755" y="243" text-anchor="middle" font-size="9" fill="#444">Express · pino · pg</text>
+      <text x="755" y="255" text-anchor="middle" font-size="9" fill="#444">HTTPS + TLS</text>
+    </g>
+
+    <!-- Arrow App Service → PostgreSQL -->
+    <line x1="835" y1="215" x2="870" y2="215" stroke="#2E7D32" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <text x="853" y="208" text-anchor="middle" font-size="9" fill="#2E7D32" font-weight="bold">SQL</text>
+
+    <!-- PostgreSQL -->
+    <g filter="url(#shadow)">
+      <rect x="875" y="170" width="160" height="90" rx="8" fill="#FFFFFF" stroke="#2E7D32" stroke-width="1.5"/>
+      <rect x="875" y="170" width="5" height="90" rx="2" fill="#2E7D32"/>
+      <text x="955" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#1F3864">PostgreSQL</text>
+      <text x="955" y="205" text-anchor="middle" font-size="9" fill="#666">Flexible Server B1ms</text>
+      <text x="955" y="221" text-anchor="middle" font-size="9" fill="#666">32 GiB · SSL erforderlich</text>
+      <line x1="890" y1="228" x2="1020" y2="228" stroke="#E0E0E0" stroke-width="1"/>
+      <text x="955" y="243" text-anchor="middle" font-size="9" fill="#444">Tabelle: notizen</text>
+      <text x="955" y="255" text-anchor="middle" font-size="9" fill="#444">Persistenter Speicher</text>
+    </g>
+
+    <!-- App Settings (Environment Variables) -->
+    <g filter="url(#shadow)">
+      <rect x="675" y="285" width="160" height="80" rx="8" fill="#FFFFFF" stroke="#C19A2E" stroke-width="1.5"/>
+      <rect x="675" y="285" width="5" height="80" rx="2" fill="#C19A2E"/>
+      <text x="755" y="304" text-anchor="middle" font-size="11" font-weight="bold" fill="#1F3864">App Settings</text>
+      <text x="755" y="320" text-anchor="middle" font-size="9" fill="#666">Environment-Variablen</text>
+      <line x1="690" y1="327" x2="820" y2="327" stroke="#E0E0E0" stroke-width="1"/>
+      <text x="755" y="341" text-anchor="middle" font-size="8.5" fill="#444">DATABASE_URL</text>
+      <text x="755" y="353" text-anchor="middle" font-size="8.5" fill="#444">PORT · WEBSITES_PORT</text>
+    </g>
+
+    <!-- Log Stream -->
+    <g filter="url(#shadow)">
+      <rect x="875" y="285" width="160" height="80" rx="8" fill="#FFFFFF" stroke="#4A6FA5" stroke-width="1.5"/>
+      <rect x="875" y="285" width="5" height="80" rx="2" fill="#4A6FA5"/>
+      <text x="955" y="304" text-anchor="middle" font-size="11" font-weight="bold" fill="#1F3864">Log Stream</text>
+      <text x="955" y="320" text-anchor="middle" font-size="9" fill="#666">Plattform-Logging</text>
+      <line x1="890" y1="327" x2="1020" y2="327" stroke="#E0E0E0" stroke-width="1"/>
+      <text x="955" y="341" text-anchor="middle" font-size="8.5" fill="#444">Strukturierte JSON-Logs</text>
+      <text x="955" y="353" text-anchor="middle" font-size="8.5" fill="#444">Pino-Format</text>
+    </g>
+
+    <!-- Connection lines inside Azure -->
+    <line x1="755" y1="260" x2="755" y2="285" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="755" y1="260" x2="875" y2="285" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  </g>
+
+  <!-- ============== BOTTOM: End User ============== -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="450" width="240" height="80" rx="10" fill="#FFFFFF" stroke="#1F3864" stroke-width="2"/>
+    <rect x="430" y="450" width="6" height="80" rx="3" fill="#1F3864"/>
+    <text x="550" y="476" text-anchor="middle" font-size="14" font-weight="bold" fill="#1F3864">Öffentlicher Zugriff</text>
+    <text x="550" y="495" text-anchor="middle" font-size="11" fill="#1565C0">https://mali-notiz-api-c3.azurewebsites.net</text>
+    <text x="550" y="513" text-anchor="middle" font-size="10" fill="#666" font-style="italic">Browser · curl · REST-Client</text>
+  </g>
+
+  <!-- Arrow User → App Service -->
+  <path d="M 550 450 Q 550 410 755 290" stroke="#1F3864" stroke-width="2.5" fill="none" marker-end="url(#arrow-navy)"/>
+  <text x="640" y="380" font-size="10" fill="#1F3864" font-weight="bold">HTTPS · TLS 1.2+</text>
+
+  <!-- ============== LEGEND ============== -->
+  <g>
+    <rect x="40" y="580" width="1020" height="115" rx="8" fill="#FAFBFC" stroke="#DDD" stroke-width="1"/>
+    <text x="55" y="603" font-size="12" font-weight="bold" fill="#1F3864">Legende · Deployment-Flow (reproduzierbar)</text>
+    <line x1="55" y1="610" x2="200" y2="610" stroke="#C19A2E" stroke-width="1.5"/>
+
+    <!-- Step 1 -->
+    <circle cx="65" cy="635" r="9" fill="#1F3864"/>
+    <text x="65" y="639" text-anchor="middle" font-size="10" font-weight="bold" fill="white">1</text>
+    <text x="82" y="639" font-size="10.5" fill="#333">Entwickler pushed Code-Änderung auf den main-Branch im GitHub-Repository.</text>
+
+    <!-- Step 2 -->
+    <circle cx="65" cy="655" r="9" fill="#C19A2E"/>
+    <text x="65" y="659" text-anchor="middle" font-size="10" font-weight="bold" fill="white">2</text>
+    <text x="82" y="659" font-size="10.5" fill="#333">GitHub Actions Workflow «deploy-azure.yml» wird automatisch ausgelöst — Build und Deploy in zwei Jobs.</text>
+
+    <!-- Step 3 -->
+    <circle cx="65" cy="675" r="9" fill="#1565C0"/>
+    <text x="65" y="679" text-anchor="middle" font-size="10" font-weight="bold" fill="white">3</text>
+    <text x="82" y="679" font-size="10.5" fill="#333">App Service lädt die neue Version, liest Environment-Variablen, verbindet sich SSL-gesichert mit PostgreSQL.</text>
+
+    <!-- Color legend -->
+    <text x="700" y="620" font-size="10" font-weight="bold" fill="#1F3864">Farb-Codierung:</text>
+    <rect x="700" y="630" width="14" height="10" fill="#1565C0"/>
+    <text x="720" y="639" font-size="10" fill="#333">App Service (Compute)</text>
+
+    <rect x="700" y="648" width="14" height="10" fill="#2E7D32"/>
+    <text x="720" y="657" font-size="10" fill="#333">PostgreSQL (Daten)</text>
+
+    <rect x="700" y="666" width="14" height="10" fill="#C19A2E"/>
+    <text x="720" y="675" font-size="10" fill="#333">Konfiguration (Secrets via Plattform)</text>
+
+    <rect x="900" y="630" width="14" height="10" fill="#4A6FA5"/>
+    <text x="920" y="639" font-size="10" fill="#333">Monitoring · Logs</text>
+
+    <rect x="900" y="648" width="14" height="10" fill="#1F3864"/>
+    <text x="920" y="657" font-size="10" fill="#333">Trigger · Code-Flow</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="550" y="710" text-anchor="middle" font-size="9" fill="#888" font-style="italic">Mehmet Ali Gür · HF Informatik · GIBB Bern · Mai 2026</text>
+</svg>
